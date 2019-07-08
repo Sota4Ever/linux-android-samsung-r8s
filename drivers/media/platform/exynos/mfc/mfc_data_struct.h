@@ -975,6 +975,7 @@ struct mfc_dev {
 	struct mfc_debug	*logging_data;
 
 	int num_inst;
+	int num_dec;
 
 	unsigned long otf_inst_bits;
 
