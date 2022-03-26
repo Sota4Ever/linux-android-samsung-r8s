@@ -503,12 +503,17 @@ static void hci_setup_link_policy(struct hci_request *req)
 
 	if (lmp_rswitch_capable(hdev))
 		link_policy |= HCI_LP_RSWITCH;
+	// Halium: do not set HCI_LP_HOLD and HCI_LP_PARK for Unisoc
+#if 0
 	if (lmp_hold_capable(hdev))
 		link_policy |= HCI_LP_HOLD;
+#endif
 	if (lmp_sniff_capable(hdev))
 		link_policy |= HCI_LP_SNIFF;
+#if 0
 	if (lmp_park_capable(hdev))
 		link_policy |= HCI_LP_PARK;
+#endif
 
 	cp.policy = cpu_to_le16(link_policy);
 	hci_req_add(req, HCI_OP_WRITE_DEF_LINK_POLICY, sizeof(cp), &cp);
