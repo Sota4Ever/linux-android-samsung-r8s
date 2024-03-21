@@ -51,6 +51,7 @@ dtbo-$(CONFIG_MODEL_C1SLTE) += samsung/exynos990-c1slte_eur_open_21.dtbo
 dtbo-$(CONFIG_MODEL_C1SLTE) += samsung/exynos990-c1slte_eur_open_24.dtbo
 dtbo-$(CONFIG_MODEL_C1SLTE) += samsung/exynos990-c1slte_eur_open_22.dtbo
 dtbo-$(CONFIG_MODEL_C1SLTE) += samsung/exynos990-c1slte_eur_open_20.dtbo
+
 dtbo-$(CONFIG_MODEL_C2SLTE) += samsung/exynos990-c2slte_eur_open_21.dtbo
 dtbo-$(CONFIG_MODEL_C2SLTE) += samsung/exynos990-c2slte_eur_openx_19.dtbo
 dtbo-$(CONFIG_MODEL_C2SLTE) += samsung/exynos990-c2slte_eur_open_24.dtbo
