@@ -1033,8 +1033,7 @@ static noinline int avc_denied(struct selinux_state *state,
 	if (flags & AVC_STRICT)
 		return -EACCES;
 
-	if (enforcing_enabled(state) &&
-	    !(avd->flags & AVD_FLAGS_PERMISSIVE))
+	if (enforcing_enabled(state) && !(avd->flags & AVD_FLAGS_PERMISSIVE))
 		return -EACCES;
 
 	avc_update_node(state->avc, AVC_CALLBACK_GRANT, requested, driver,

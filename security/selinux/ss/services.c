@@ -69,10 +69,6 @@
 #include "xfrm.h"
 #include "ebitmap.h"
 #include "audit.h"
-#ifdef CONFIG_KDP_CRED
-#include <linux/uh.h>
-#include <linux/kdp.h>
-#endif
 
 /* Policy capability names */
 char *selinux_policycap_names[__POLICYDB_CAPABILITY_MAX] = {
@@ -85,9 +81,6 @@ char *selinux_policycap_names[__POLICYDB_CAPABILITY_MAX] = {
 };
 
 static struct selinux_ss selinux_ss;
-#if (defined CONFIG_KDP_CRED && defined CONFIG_SAMSUNG_PRODUCT_SHIP)
-int ss_initialized __kdp_ro;
-#endif
 
 void selinux_ss_init(struct selinux_ss **ss)
 {
@@ -2159,11 +2152,7 @@ int security_load_policy(struct selinux_state *state, void *data, size_t len)
 		}
 
 		security_load_policycaps(state);
-#if (defined CONFIG_KDP_CRED && defined CONFIG_SAMSUNG_PRODUCT_SHIP)
-		uh_call(UH_APP_KDP, RKP_KDP_X60, (u64)&ss_initialized, 1, 0, 0);
-#else
 		state->initialized = 1;
-#endif
 		seqno = ++state->ss->latest_granting;
 		selinux_complete_init();
 		avc_ss_reset(state->avc, seqno);
