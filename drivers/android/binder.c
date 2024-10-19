@@ -154,6 +154,9 @@ static int binder_set_stop_on_user_error(const char *val,
 module_param_call(stop_on_user_error, binder_set_stop_on_user_error,
 	param_get_int, &binder_stop_on_user_error, 0644);
 
+static bool binder_global_pid_lookups = true;
+module_param_named(global_pid_lookups, binder_global_pid_lookups, bool, S_IRUGO);
+
 #ifdef DEBUG
 #define binder_debug(mask, x...) \
 	do { \
@@ -1466,7 +1469,7 @@ static struct binder_node *binder_init_node_ilocked(
 	node->min_priority = to_kernel_prio(node->sched_policy, priority);
 	node->accept_fds = !!(flags & FLAT_BINDER_FLAG_ACCEPTS_FDS);
 	node->inherit_rt = !!(flags & FLAT_BINDER_FLAG_INHERIT_RT);
-	node->txn_security_ctx = !!(flags & FLAT_BINDER_FLAG_TXN_SECURITY_CTX);
+        node->txn_security_ctx = 0; /*!!(flags & FLAT_BINDER_FLAG_TXN_SECURITY_CTX);*/
 	spin_lock_init(&node->lock);
 	INIT_LIST_HEAD(&node->work.entry);
 	INIT_LIST_HEAD(&node->async_todo);
@@ -4755,6 +4758,8 @@ retry:
 			trd->sender_pid =
 				task_tgid_nr_ns(sender,
 						task_active_pid_ns(current));
+                        if (binder_global_pid_lookups && trd->sender_pid == 0)
+				trd->sender_pid = task_tgid_nr(sender);
 		} else {
 			trd->sender_pid = 0;
 		}
