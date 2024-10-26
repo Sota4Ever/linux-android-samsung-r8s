@@ -77,8 +77,18 @@ struct bcm_bt_gpio {
 
 int idle_btip_index;
 
+static bool is_blocked = 1;
 static int bcm43xx_bt_rfkill_set_power(void *data, bool blocked)
 {
+	if(is_blocked == blocked){
+		if(!blocked){
+			pr_info("[BT] Bluetooth Power is already On.\n");
+		}else{
+			pr_info("[BT] Bluetooth Power is already Off.\n");
+		}
+		return 0;
+	}
+
 	/* rfkill_ops callback. Turn transmitter on when blocked is false */
 	if (!blocked) {
 		pr_info("[BT] Bluetooth Power On.\n");
@@ -111,6 +121,9 @@ static int bcm43xx_bt_rfkill_set_power(void *data, bool blocked)
 		exynos_update_ip_idle_status(idle_btip_index, STATUS_IDLE);
 		gpio_set_value(bt_gpio.bt_en, 0);
 	}
+
+	is_blocked = blocked;
+
 	return 0;
 }
 
