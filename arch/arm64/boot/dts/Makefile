@@ -31,8 +31,8 @@ dtbo-$(CONFIG_MODEL_Y2S) += samsung/exynos990-y2s_eur_open_18.dtbo
 dtbo-$(CONFIG_MODEL_Y2S) += samsung/exynos990-y2s_eur_open_19.dtbo
 dtbo-$(CONFIG_MODEL_Y2S) += samsung/exynos990-y2s_eur_open_21.dtbo
 
-dtbo-$(CONFIG_MODEL_Y2SLTE) += exynos990-y2slte_eur_open_00.dtbo
-dtbo-$(CONFIG_MODEL_Y2SLTE) += exynos990-y2slte_eur_open_21.dtbo
+dtbo-$(CONFIG_MODEL_Y2SLTE) += samsung/exynos990-y2slte_eur_open_00.dtbo
+dtbo-$(CONFIG_MODEL_Y2SLTE) += samsung/exynos990-y2slte_eur_open_21.dtbo
 
 dtbo-$(CONFIG_MODEL_Z3S) += samsung/exynos990-z3s_eur_open_16.dtbo
 dtbo-$(CONFIG_MODEL_Z3S) += samsung/exynos990-z3s_eur_open_17.dtbo
