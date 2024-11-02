@@ -170,11 +170,8 @@ int gpex_get_valid_gpu_clock(int clock, bool is_round_up)
 	if (clock == 0)
 		return 0;
 
-	min_clock_idx = gpex_clock_get_table_idx(gpex_clock_get_min_clock());
-	max_clock_idx = gpex_clock_get_table_idx(gpex_clock_get_max_clock());
-
-	if ((clock - gpex_clock_get_min_clock()) < 0)
-		return clk_info.table[min_clock_idx].clock;
+	min_clock_idx = 897000;
+	max_clock_idx = 702000;
 
 	if (is_round_up) {
 		/* Round Up if min lock sequence */
