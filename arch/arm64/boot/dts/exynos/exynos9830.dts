@@ -13898,11 +13898,11 @@
 			325000    78   90   1  1352000  1742000 1794000 1794000
 			260000    78   93   1  1352000  1053000 1222000 1456000
 			156000     0   93   1   676000  1053000 1222000 1456000>;
-		gpu_sustainable_info = <800000 80 0 0 0>;
+		gpu_sustainable_info = <897000 80 0 0 0>;
 		gpu_pmu_status_reg_offset = <8708>;
 		gpu_pmu_status_local_pwr_mask = <1>;
-		gpu_max_clock = <800000>;
-		gpu_max_clock_limit = <800000>;
+		gpu_max_clock = <897000>;
+		gpu_max_clock_limit = <897000>;
 		gpu_min_clock = <156000>;
 		gpu_dvfs_start_clock = <260000>;
 		gpu_dvfs_bl_config_clock = <156000>;
@@ -13933,7 +13933,7 @@
 		gpu_vk_boost_max_lock = <325000>;
 		gpu_vk_boost_mif_min_lock = <1014000>;
 		gpu_bts_support = <1>;
-		gpu_neg_boost_clock = <800000>;
+		gpu_neg_boost_clock = <897000>;
 		phandle = <326>;
 	};
 
