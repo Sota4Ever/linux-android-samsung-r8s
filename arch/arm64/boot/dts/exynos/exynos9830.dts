@@ -13879,7 +13879,7 @@
 		power-domains = <0x8f>;
 		g3d_genpd_name = "pd-embedded_g3d";
 		#cooling-cells = <0x02>;
-		governor = "interactive";
+		governor = "static";
 		interactive_info = <800000 53 0x00>;
 		gpu_dvfs_table_size = <15 8>;
    /*  8 columns        freq    down  up  stay   mif    little  middle   big  */
