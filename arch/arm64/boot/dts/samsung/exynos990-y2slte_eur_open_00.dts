@@ -7419,7 +7419,6 @@
 				sec,regulator_dvdd = "tsp_io";
 				sec,regulator_avdd = "tsp_avdd";
 				sec,regulator_boot_on;
-				support_dex_mode;
 				enable_settings_aot;
 				support_ear_detect_mode;
 				sync-reportrate-120 = [59 00];

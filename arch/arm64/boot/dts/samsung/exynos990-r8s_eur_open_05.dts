@@ -6582,7 +6582,6 @@
 				zinitix,aot;
 				zinitix,mis_cal_check;
 				support_ear_detect_mode;
-				support_dex_mode;
 				support_open_short_test;
 				zinitix,tclm_level = <0x02>;
 				zinitix,afe_base = <0x18>;
